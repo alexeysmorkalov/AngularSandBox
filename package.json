@@ -1,0 +1,27 @@
+{
+  "name": "tsandbox",
+  "version": "1.0.0",
+  "description": "TS sandbox",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexeysmorkalov/AngularSandBox.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Noobie"
+  ],
+  "author": "Alexey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexeysmorkalov/AngularSandBox/issues"
+  },
+  "homepage": "https://github.com/alexeysmorkalov/AngularSandBox#readme",
+  "devDependencies": {
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  }
+}
