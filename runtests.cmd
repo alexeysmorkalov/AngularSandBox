@@ -1,0 +1,1 @@
+node_modules\.bin\mocha --require ts-node/register --extensions ts,tsx --watch --watch-files tests 'tests/**/*.{ts,tsx}'
