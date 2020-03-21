@@ -66,15 +66,17 @@ describe('TypeScript types', () => {
         expect(align.valueOf()).to.be.equal(0);
     });
     
-    it ('enum index 0', () => {
+    // By annotating an enum option, you set the value;
+    it ('enum annotating 0', () => {
         enum Alignment {Left = 1, Center, Right};
         let align : Alignment = Alignment.Left;
         expect(align.valueOf()).to.be.equal(1);
     });
 
+    // increments continue from annotated value:
     it ('enum index 1', () => {
-        enum Alignment {Left, Center, Right = 4};
-        let align : Alignment = Alignment.Left;
+        enum Alignment {Left, Center = 3, Right};
+        const align = Alignment.Left;
         expect(Alignment.Left).to.be.equal(0);
         expect(Alignment.Right).to.be.equal(4);
     });    
@@ -87,12 +89,11 @@ describe('TypeScript types', () => {
         expect(alignNumber).to.be.equal(0);
     });
 
-    it ('enum num string', () => {
-        enum Alignment {Left, Center, Right = 4};
-        let alignString : string = Alignment[0];
-        let alignNumber : number = Alignment.Left.valueOf();
-        expect(alignString).to.be.equal('Left');
-        expect(alignNumber).to.be.equal(0);
+    // Const enum reduces the number of objects in JavaScript runtime
+    it ('const enum', () => {
+        const enum Alignment {Left, Center, Right};
+        const align = Alignment.Center;
+        expect(align).to.be.lessThan(Alignment.Right);
     });
 
     it ('any', () => {
@@ -122,6 +123,11 @@ describe('TypeScript types', () => {
         expect(a).not.to.be.null;
     });
 
+    it ('object type', () => {
+        let o: object | null = null;
+        o = { Name: 'object' };
+        expect(o).to.be.not.null;
+    });
     
     it ('never', () => {
         function n () : never {
@@ -129,6 +135,13 @@ describe('TypeScript types', () => {
         }
 
         expect(()=>n()).throws('Err');
+    });
+
+    it ('type assertions', () => {
+        const enum Day {Sunday, Monday};
+        const s: any = Day.Monday;
+        expect((s as Day).valueOf()).to.be.equal(1); // for JSX
+        expect((<Day>s).valueOf()).to.be.equal(1);
     });
 
     //BigInt literals are not available when targeting lower than ES2020.ts(2737)
