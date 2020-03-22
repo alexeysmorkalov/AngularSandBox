@@ -113,6 +113,11 @@ describe('TypeScript types', () => {
         expect(a).not.to.be.null;
     });
 
+    it ('void', () => {
+        let v: void = undefined;
+        expect(v).to.be.undefined;
+    });
+
     it ('union type', () => {
         let a: string | null = '1';
         a = null;
