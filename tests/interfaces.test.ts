@@ -35,18 +35,19 @@ describe('Typescript interfaces', () => {
         const ra : ReadonlyArray<number> = [1, 2];
     });
 
-    it ('type assertion', () => {
+    it ('excess property check', () => {
         interface Car {
             Brand: string;
-            [propName: string]: string;
+            [propName: string]: string | boolean;
+
         }
 
-        let car : Car = {Brand: 'Lada', Color: 'red'};
+        let car : Car = {Brand: 'Lada', Color: 'red', InStock: true};
 
         expect(car).to.have.property('Color');
     });
 
-    it ('Excess Property Checks', () => {
+    it ('type assertion', () => {
         interface Car {
             Brand: string;
         }
@@ -54,5 +55,19 @@ describe('Typescript interfaces', () => {
         let car : Car = {Brand: 'Lada', Color: 'red'} as Car;
 
         expect(car).to.have.property('Color');
+    });
+
+    it ('function type', () => {
+        interface Search {
+            (arr : number[], value: number) : boolean;
+        }
+
+        var mySearch: Search = function(arr: number[], value: number): boolean {
+            return arr.indexOf(value) >= 0;
+        }
+
+        var b = mySearch([1,2], 1);
+
+        expect(b).to.be.true;
     });
 });
