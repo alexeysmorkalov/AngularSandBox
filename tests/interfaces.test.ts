@@ -62,12 +62,32 @@ describe('Typescript interfaces', () => {
             (arr : number[], value: number) : boolean;
         }
 
-        var mySearch: Search = function(arr: number[], value: number): boolean {
+        let mySearch: Search = function(arr: number[], value: number): boolean {
             return arr.indexOf(value) >= 0;
         }
 
-        var b = mySearch([1,2], 1);
+        const b = mySearch([1,2], 1);
 
         expect(b).to.be.true;
+    });
+
+    it ('indexible 1', () => {
+        interface Car {
+            [index: number]: string;
+        }
+
+        let car: Car = ['Lada', 'Niva'];
+
+        expect(car[0]).to.be.equal('Lada');
+    });
+
+    it ('indexible 2', () => {
+        interface Car {
+            [index: string]: string;
+        }
+
+        let car: Car = {'k0': 'kk0', 'k1': 'kk1'};
+
+        expect(car['k0']).to.be.equal('kk0');
     });
 });
