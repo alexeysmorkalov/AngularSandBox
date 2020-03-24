@@ -114,4 +114,19 @@ describe ('public, protected, private, readonly modifiers', () => {
         expect(car.getBrand()).to.be.not.null;
 
     });
+
+    it ('protected ctor', () => {
+        class Vehicle {
+            #brand: string;
+            protected constructor(brand: string) {
+                this.#brand = brand;
+            }
+        }
+
+        class Car extends Vehicle {
+            constructor() {
+                super('Car');
+            }
+        }
+    });
 });
