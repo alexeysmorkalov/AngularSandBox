@@ -90,4 +90,82 @@ describe('Typescript interfaces', () => {
 
         expect(car['k0']).to.be.equal('kk0');
     });
+
+    it ('indexible mixed types', () => {
+        interface Car {
+            [index: string]: number | string;
+            brand: string;
+            wheels: number;
+        }
+
+        let car: Car = {'brand' : 'Lada', 'wheels': 4, 'price': 240000 };
+
+        expect(car['brand']).to.be.equal(car.brand);
+        expect(car['price']).to.be.equal(240000);
+        expect(car['wheels']).to.be.equal(car.wheels);
+    });
+
+    it ('implementing interface', () => {
+        interface Car {
+            brand: string;
+            wheels(): number;
+        }
+        class CityCar implements Car {
+            constructor (public brand: string) {};
+            wheels() {return 4;}
+        }
+
+        let car: Car = new CityCar('Lada');
+
+        expect(car.wheels()).to.be.equal(4);
+    });
+
+    it ('fabric method', ()=>{
+        interface Car {
+            brand(): string;
+        } 
+        interface CarBuilder {
+            new (brand: string): Car;
+        }
+        class CityCar implements Car {
+            #brand: string;
+            constructor (brand: string) {
+                this.#brand = brand;
+            }
+            brand(): string {
+                return this.#brand;
+            }
+        }
+        function createCityCar(
+            ctor: CarBuilder,
+            brand: string
+        ) : Car {
+            return new ctor(brand);
+        }
+        let car : Car = createCityCar(CityCar, 'Lada');
+
+        expect(car.brand()).to.be.equal('Lada');
+    })
+
+    it ('fabric method 2', () => {
+        interface Car {
+            brand(): string;
+        }
+        interface CarBuilder {
+            new (brand: string): Car;
+        }
+
+        let carBuilder: CarBuilder = class CityCar implements Car {
+            constructor(private _brand: string) { };
+
+            brand(): string {
+                return this._brand;
+            }
+        }
+
+        let car: Car = new carBuilder('Lada');
+
+        expect(car.brand()).to.be.equal('Lada');
+
+    });
 });
