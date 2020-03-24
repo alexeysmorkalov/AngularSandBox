@@ -115,11 +115,15 @@ describe ('public, protected, private, readonly modifiers', () => {
 
     });
 
-    it ('protected ctor', () => {
+    it ('protected ctor & method', () => {
         class Vehicle {
             #brand: string;
             protected constructor(brand: string) {
                 this.#brand = brand;
+            }
+
+            protected m(v: string) {
+
             }
         }
 
@@ -127,6 +131,24 @@ describe ('public, protected, private, readonly modifiers', () => {
             constructor() {
                 super('Car');
             }
+
+            public m() {
+                super.m('Car');
+            }
         }
+    });
+
+    it ('parameter properties', () => {
+        class Car {
+            constructor(private readonly brand: string) {
+
+            }
+            getBrand() : string {
+                return this.brand;
+            }
+        }
+
+        var c = new Car('C');
+        expect(c.getBrand()).to.be.equal('C');
     });
 });
