@@ -151,4 +151,27 @@ describe ('public, protected, private, readonly modifiers', () => {
         var c = new Car('C');
         expect(c.getBrand()).to.be.equal('C');
     });
+
+    it ('getters & setters', () => {
+        enum CarTypes {CityCar, SUV};
+
+        class Car {
+            #carType: CarTypes = CarTypes.CityCar;
+
+
+            get carType() : CarTypes {
+                return this.#carType;
+            }
+            set carType(value: CarTypes) {
+                this.#carType = value;
+            }
+            get drivingWheels(): number {
+                return this.carType == CarTypes.CityCar ? 2 : 4;
+            }
+        }
+
+        let car: Car = new Car();
+        car.carType = CarTypes.SUV;
+        expect(car.drivingWheels).to.be.equal(4);
+    });
 });
