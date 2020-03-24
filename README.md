@@ -1,3 +1,3 @@
 # Typescript + Angular \ Vue \ React sand box
 
-[![Code Style][code-style-image]][code-style-url]
+![Node.js CI](https://github.com/alexeysmorkalov/WebDevProfile/workflows/Node.js%20CI/badge.svg)
