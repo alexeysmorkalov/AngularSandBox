@@ -168,4 +168,52 @@ describe('Typescript interfaces', () => {
         expect(car.brand()).to.be.equal('Lada');
 
     });
+
+    it ('exteding interfaces', () => {
+        interface Vehicle {
+            readonly brand: string;
+        }
+
+        interface Car extends Vehicle {
+            readonly color: string;
+        }
+
+        class CityCar implements Car {
+            readonly color: string;
+            readonly brand: string;
+            constructor(color: string, brand: string) {
+                this.brand = brand;
+                this.color = color;
+            }
+        }
+
+        const car = new CityCar('Red', 'Ferrari');
+
+        expect(car).to.have.property('color');
+    });
+
+    it ('{} as ...', () => {
+        interface Car {
+            color: string;
+        }
+
+        const car = {} as Car;
+        expect(car).not.to.have.property('color');
+        car.color = 'red';
+
+        expect(car).to.have.property('color');
+    });
+
+    it ('function type 2', () => {
+        interface Car {
+            speed: number;
+            start(): void;
+        }
+
+        const car = {} as Car;
+        car.start = function() { this.speed = 1; };
+
+        car.start();
+        expect(car.speed).to.be.equal(1);
+    });
 });
