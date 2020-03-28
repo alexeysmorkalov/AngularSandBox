@@ -216,4 +216,41 @@ describe('Typescript interfaces', () => {
         car.start();
         expect(car.speed).to.be.equal(1);
     });
+
+    it ('hybrid types', ()=> {
+        interface Car {
+            (speed: number): void;
+            maxSpeed: number;
+        }
+
+        function buildCar(): Car {
+            const car: Car = function(speed: number) {} as Car;
+            car.maxSpeed = 100;
+            return car;
+        }
+
+        var car = buildCar();
+        car(10);
+
+        expect(car.maxSpeed).to.be.equal(100);
+    });
+
+    it ('interface extends a class', () => {
+        class CityCar {
+            getBrand() : string { return 'Any'};
+        }
+
+        //inherits the members of the class but not their implementations. 
+        interface Car extends CityCar {
+
+        }
+
+        class RenaultCar implements Car {
+            getBrand(): string { return 'Renault';  }
+        }
+
+        var car = new RenaultCar() as Car;
+        expect(car.getBrand()).to.be.equal('Renault');
+
+    });
 });
