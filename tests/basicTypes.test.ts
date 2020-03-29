@@ -32,6 +32,14 @@ describe('TypeScript types', () => {
         expect(arr.length).to.be.equal(3);
     });
 
+    it ('array general', () => {
+        let arr = Array(3);
+        expect(arr.length).to.be.equal(3);
+        expect(arr[0]).to.be.undefined;
+        arr[0] = 1;
+        arr[1] = 'String';
+    })
+
     it ('touple 1', () => {
         let v1: [number, string];
         let v2: [number, string];
