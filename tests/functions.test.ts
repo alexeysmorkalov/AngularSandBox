@@ -58,4 +58,15 @@ describe('typescript functions', () => {
         expect(add(1)).to.be.equal(1);
     });
 
+    it ('rest parameters', () => {
+        let sum: (x1: number, ...xx: number[]) => number;
+        sum = function(x1, ...xx) {
+            let res: number = x1;
+            xx.forEach((x, i) => {
+                res += x;
+            });
+            return res;
+        }
+        expect(sum(1,2,3)).to.be.equal(6);
+    });
 });
