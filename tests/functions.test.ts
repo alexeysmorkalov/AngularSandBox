@@ -77,7 +77,7 @@ describe('typescript functions', () => {
         }
         function drive(car: Car): Car;
         function drive(value: number): number;
-        function drive(x): Car | number {
+        function drive(x: Car | number): Car | number {
             if (typeof x == 'object') {
                 return (x as Car);
             } else {
