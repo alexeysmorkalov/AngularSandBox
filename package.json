@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/alexeysmorkalov/AngularSandBox#readme",
   "devDependencies": {
-    "@types/chai": "^4.2.11",
-    "@types/mocha": "^7.0.2",
-    "chai": "^4.2.0",
-    "mocha": "^7.1.1",
-    "ts-node": "^8.8.1",
-    "typescript": "^3.8.3"
+    "@types/chai": "4.2.11",
+    "@types/mocha": "7.0.2",
+    "chai": "4.2.0",
+    "mocha": "7.1.1",
+    "ts-node": "8.8.1",
+    "typescript": "3.8.3"
   }
 }
