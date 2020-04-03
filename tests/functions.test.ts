@@ -69,4 +69,26 @@ describe('typescript functions', () => {
         }
         expect(sum(1,2,3)).to.be.equal(6);
     });
+
+    it ('overloads', () => {
+
+        class Car {
+
+        }
+        function drive(car: Car): Car;
+        function drive(value: number): number;
+        function drive(x: Car | number): Car | number {
+            if (typeof x == 'object') {
+                return (x as Car);
+            } else {
+                return (x as number) + 1;
+            }
+        }
+        const res = drive(0);
+        expect(res).to.be.equal(1);
+
+        const car = new Car();
+        const car2 = drive(car);
+        expect(car2).to.be.equal(car);
+    })
 });
