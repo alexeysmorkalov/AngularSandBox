@@ -85,4 +85,89 @@ describe('generics types', () => {
 
         expect(res).to.be.equal(2);
     });
+
+    it ('generic class', () => {
+        class CalcEngine<T> {
+            constructor () {
+                this.eval = function (expression: string, param: T) : T {
+                    return param;
+                }
+            }
+            eval: (expression: string, param: T) => T;
+        }
+
+        let stringEngine = new CalcEngine<string> ();
+
+        const res = stringEngine.eval('', '1');
+
+        expect(res).to.be.equal('1');
+    });
+
+    it ('generic constraints', () => {
+        interface Expression {
+            expression: string;
+            isValid: boolean;
+        }
+
+        function evaluate<T extends Expression> (expression: T): T {
+            if (!expression.isValid)
+                throw new Error('Expression must be valid');
+            return expression;
+        }
+
+        let expr: Expression = {} as Expression;
+        expect(() => {evaluate(expr)}).to.throw();
+        expr.isValid = true;
+        expect(() => {evaluate(expr)}).to.not.throw();
+    });
+
+    it ('type parameter Keyof', () => {
+        function getProperty<T, K extends keyof T>(obj: T, key: K) {
+            return obj[key];
+        }
+
+        class Car {
+            brand: string;
+            constructor (brand: string) {
+                this.brand = brand;
+            }
+        }
+
+        const car: Car = new Car('Audi');
+
+        expect(getProperty(car, 'brand')).to.be.equal('Audi');
+    });
+
+    it ('using class types in generics', () => {
+
+        class Vehicle {
+        }
+
+        class CarEngine {
+            cylinders: number[] = [];
+        }
+
+        class BikeEngine {
+            maxPower: number = 120;
+        }
+        
+        class Car extends Vehicle {
+            engine: CarEngine = new CarEngine();
+        }
+        
+        class Bike extends Vehicle {
+            engine: BikeEngine = new BikeEngine();
+        }
+
+        function createVehicle<V extends Vehicle>(c: new () => V): V {
+            return new c();
+        }
+
+        const car = createVehicle(Car);
+        const bike = createVehicle(Bike);
+
+        expect(car.engine).to.have.property('cylinders');
+        expect(bike.engine).not.to.have.property('cylinders');
+        expect(bike.engine).to.have.property('maxPower');
+    });
 });
