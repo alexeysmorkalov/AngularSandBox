@@ -174,4 +174,29 @@ describe ('public, protected, private, readonly modifiers', () => {
         car.carType = CarTypes.SUV;
         expect(car.drivingWheels).to.be.equal(4);
     });
+
+    it ('static properties', () => {
+        class Wheel {
+
+        }
+        class Car {
+            static wheels = 4;
+
+            getWheels(): Wheel[] {
+                return new Array<Wheel>(Car.wheels);
+            }
+        }
+
+        class CityCar extends Car {
+            getTyres(): number {
+                return Car.wheels;
+            }
+        }
+
+        const cityCar: CityCar = new CityCar();
+
+        expect(cityCar.getWheels().length).to.be.equal(4);
+        expect(cityCar.getTyres()).to.be.equal(4);
+
+    });
 });
