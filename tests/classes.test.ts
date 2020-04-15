@@ -198,5 +198,38 @@ describe ('public, protected, private, readonly modifiers', () => {
         expect(cityCar.getWheels().length).to.be.equal(4);
         expect(cityCar.getTyres()).to.be.equal(4);
 
+        Car.wheels = 5;
+        expect(cityCar.getTyres()).to.be.equal(5);
+
+    });
+
+    it ('abstract classes', () => {
+       abstract class Vehicle {
+           constructor(public brand: string) {}
+
+           abstract drive(): void; 
+
+           abstract get speed(): number;
+           abstract set speed(spped: number);
+       } 
+
+       class Car extends Vehicle {
+           #speed: number = 0;
+           drive() {
+                this.#speed = 20;
+           }
+           get speed() {
+               return this.#speed;
+           }
+           set speed(value: number) {
+               this.#speed = value;
+           }
+       }
+
+       let car = new Car('Audi');
+       car.drive();
+
+       expect(car.brand).to.be.equal('Audi');
+       expect(car.speed).to.be.equal(20);
     });
 });
