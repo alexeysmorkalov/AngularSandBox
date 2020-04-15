@@ -232,4 +232,19 @@ describe ('public, protected, private, readonly modifiers', () => {
        expect(car.brand).to.be.equal('Audi');
        expect(car.speed).to.be.equal(20);
     });
+
+    it ('using a class as an interface', () => {
+        class Car {
+            brand: string = "";
+            wheels: number = 0;
+        }
+
+        interface CityCar extends Car {
+            maxSpeed: number;
+        }
+
+        const cityCar: CityCar = {brand: 'audi', wheels: 4, maxSpeed: 60};
+
+        expect(cityCar).to.have.property('brand');
+    });
 });
