@@ -90,5 +90,25 @@ describe('typescript functions', () => {
         const car = new Car();
         const car2 = drive(car);
         expect(car2).to.be.equal(car);
-    })
+    });
+    it ('rest parameters2', () => {
+        interface Car {
+            brand: string;
+            power: number;
+            maxSpeed: number;
+            color: string;
+        }
+        function buildCar(brand: string, ...params: (string | number)[]) : Car {
+            const car = {} as Car;
+            car.brand = brand;
+            car.power = params[0] as number;
+            car.color = params[1] as string;
+            return car;
+        }
+
+        const car = buildCar("Audi", 200, "Red");
+
+        expect(car.power).to.be.equal(200);
+        expect(car.color).to.be.equal("Red");
+    });
 });
