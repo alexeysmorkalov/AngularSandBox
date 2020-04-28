@@ -4,7 +4,8 @@
   "description": "TS sandbox",
   "main": "src/index.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha --require ts-node/register --extensions ts,tsx tests 'tests/**/*.{ts,tsx}'"
+    "test": "node_modules/.bin/mocha --require ts-node/register --extensions ts,tsx tests 'tests/**/*.{ts,tsx}'",
+    "frun": "firebase serve --only hosting"
   },
   "repository": {
     "type": "git",

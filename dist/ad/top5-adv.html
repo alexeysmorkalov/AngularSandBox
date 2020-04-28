@@ -34,10 +34,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Топ-5 приложений для изучения русского языка</title>
   <style media="screen">
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      font-family: -apple-system, Helvetica, sans-serif;
+      max-width: 100%;
+    }
+    .main {
+      padding: 10px 50px;
+      margin: 0 auto;
+      max-width: 100%;
+      background: #f0f0f0;
+    }
+    .goback {
+      display: block;
+      margin : 10px auto;
+    }
   </style>
 </head>
-
 <body>
+  <div class="main">
   <h1>Топ-5 приложений для изучения русского языка.</h1>
   <div>Приложения — удобный способ учить русский язык в любое время и в любом месте.</div>
   <article>
@@ -75,8 +93,9 @@
     <h3>Итог</h3>
     <div>Приложения помогают день ото дня улучшать Ваш русский язык, делая это занятие нескучным.</div>
   </article>
-  <a href="javascript:history.back()"
+  <a class="goback" href="javascript:history.back()"
     onclick="ga('send', 'event', 'Landing', 'GoBack', 'h3click', 'top5-adv');">Вернуться</a>
+  </div>
 </body>
 
 </html>
