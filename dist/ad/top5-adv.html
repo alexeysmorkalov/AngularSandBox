@@ -1,13 +1,106 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Топ-5 советов изучающим русский язык</title>
-    <style media="screen">
-    </style>
-  </head>
-  <body>
-    <h1>Топ-5 советов изучающим русский язык!</h1>
-  </body>
+<html lang="ru">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-39066826-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-39066826-4');
+    gtag('config', 'AW-752888957');
+  </script>
+
+  <!-- Event snippet for Chekhov Small Desc Click conversion page
+    In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+  <script>
+    function gtag_report_conversion(url) {
+      var callback = function () {
+        if (typeof (url) != 'undefined') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'conversion', {
+        'send_to': 'AW-752888957/PRfjCOrZvc4BEP3YgOcC',
+        'event_callback': callback
+      });
+      return false;
+    }
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Топ-5 приложений для изучения русского языка</title>
+  <style media="screen">
+    html, body {
+      padding: 0;
+      margin: 0;
+    }
+    body {
+      font-family: -apple-system, Helvetica, sans-serif;
+      max-width: 100%;
+    }
+    .main {
+      padding: 10px 50px;
+      margin: 0 auto;
+      max-width: 100%;
+      background: #f0f0f0;
+    }
+    .goback {
+      display: block;
+      margin : 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+  <h1>Топ-5 приложений для изучения русского языка.</h1>
+  <div>Приложения — удобный способ учить русский язык в любое время и в любом месте.</div>
+  <article>
+    <h2><a href="https://apps.apple.com/ru/app/babbel-learn-languages/id829587759" target="_blank"
+      onclick="gtag('event', 'Curiosity', { event_label: 'Babbel', event_category: 'Engagement'});">
+        Babbel</a></h2>
+    <div>Короткие, эффективные уроки. Тренировка словарного запаса. Хорошие уроки грамматики. Доступная цена. </div>
+  </article>
+  <article>
+    <h2><a href="https://facebook.com" onclick="gtag('event', 'Click', { event_label: 'Checkhov', event_category: 'Conversion'}); return gtag_report_conversion('https://facebook.com');" target="_blank">Чехов</a>
+    </h2>
+    <div>В приложении Чехов используется игровой подход. Ты начинаешь говорить с первого дня. Никогда не становится
+      скучно и очень быстро приходит уверенность в своих силах.</div>
+  </article>
+  <article>
+    <h2><a href="https://apps.apple.com/ru/app/rosetta-stone-learn-languages/id435588892" target="_blank"
+      onclick="gtag('event', 'Curiosity', { event_label: 'Rosetta Stone', event_category: 'Engagement'});">
+        Rosetta Stone</a></h2>
+    <div>Пользователь учится, не используя свой родной язык. Изучение языка происходит на интуитивном уровне. Rosetta
+      Stone полностью погружает в изучаемый язык. Используются картинки и аудио. Отлично для начального уровня.</div>
+  </article>
+  <article>
+    <h2><a href="https://duolingo.com" target="_blank" 
+        onclick="gtag('event', 'Curiosity', { event_label: 'Duolingo', event_category: 'Engagement'});">
+        Duolingo</a></h2>
+    <div>Уроки в игровой форме. Уроки Duolingo адаптируются под ваш стиль занятий. Обучение языкам на Duolingo
+      совершенно бесплатно, но вы можете убрать рекламу с подпиской Plus. </div>
+  </article>
+  <article>
+    <h2><a href="https://www.memrise.com" target="_blank"
+      onclick="gtag('event', 'Curiosity', { event_label: 'Memrise', event_category: 'Engagement'});">
+      Memrise</a></h2>
+    <div>Использует метод интервального запоминания. Пользователь изучает слово снова и снова, через определенные
+      промежутки времени. Система определяет слова, которые являются для пользователя сложными и делает акцент на них.
+    </div>
+  </article>
+  <article>
+    <h3>Итог</h3>
+    <div>Приложения помогают день ото дня улучшать Ваш русский язык, делая это занятие нескучным.</div>
+  </article>
+  <a class="goback" href="javascript:history.back()"
+     onclick="gtag('event', 'GoBack', { event_label: 'GoBackLabel', event_category: 'Engagement'});">
+    Вернуться
+  </a>
+  </div>
+</body>
+
 </html>
