@@ -9,10 +9,60 @@
             body {
               font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
               font-size: 16px;
-            }</style>
+              background: #d0d5d0;
+            }
+            .container {
+                margin: 0 auto 0 auto;
+                width: 380px;
+                max-width: 100%;
+            }
+            .iesenin {
+                border-radius: 50% 50%;
+                max-width: 100%;
+            }
+            .congrats{
+                font-weight: 150;
+                font-size: 3.5rem;
+                text-align: center;
+            }
+            .result {
+                margin-top: 1em;
+            }
+            .aname {
+                font-weight: bold;
+                font-size: 1.5em;
+                display: block;
+                text-align: center;
+            }
+            .share {
+                margin-top: 1em;
+                text-align: center;
+            }
+            a, a:visited, a:active {
+                text-decoration: none;
+                vertical-align: center;
+                display: inline-block;
+                color: #050595;
+                font-size: 2em;
+                font-weight: bolder;
+            }
+            svg {
+                fill: currentColor;
+            }
+            .svg-inline--fa, .fbshare {
+                color: #050595;
+            }
+        </style>
     </head>
     <body>
+        <div class="container">
         <div class="congrats">Поздравляем!</div>
-        <div>Ваш уровень понимания времён русского языка - <span class="aname">Сергей Есенин.</span></div>
+        <img src="assets/i/sergei-aleksandrovich-esenin-1895-1925.jpeg" alt="Есенин" class="iesenin"/>
+        <div class="result">Ваш уровень понимания времён русского языка: <span class="aname">Сергей Есенин.</span></div>
+        <div class="share">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flanguagewarmup.web.app//ad/reward-leo.html" target="_blank" rel="noopener">
+                <div>Поделиться<div><img class="fbshare" src="assets/i/facebook-square-brands.svg" width="32px" height="32px" alt="Share on Facebook" ></img>
+        </div>
+        </div>
     </body>
 </html>
