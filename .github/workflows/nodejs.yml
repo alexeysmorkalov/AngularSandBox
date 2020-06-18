@@ -30,19 +30,19 @@ jobs:
       env:
         CI: true
     # uncomment when ready to deploy webpack output
-    #- uses: actions/upload-artifact@master
-    #    with:
-    #      name: dist
-    #      path: dist
+    - uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: dist
   deploy:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      #- uses: actions/download-artifact@master
-      #  with:
-      #    name: dist
+      - uses: actions/download-artifact@master
+        with:
+          name: dist
       - uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
