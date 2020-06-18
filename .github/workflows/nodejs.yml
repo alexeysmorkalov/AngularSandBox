@@ -29,11 +29,12 @@ jobs:
     - run: npm test
       env:
         CI: true
-    # uncomment when ready to deploy webpack output
-    - uses: actions/upload-artifact@master
-        with:
-          name: dist
-          path: dist
+    # deploy webpack output
+    - name: deploy webpack output
+      uses: actions/upload-artifact@master
+      with:
+        name: dist
+        path: dist
   deploy:
     name: Deploy
     needs: build
