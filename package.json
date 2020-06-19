@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "build": "webpack --mode production",
-    "test": "node_modules/.bin/mocha --require ts-node/register --extensions ts,tsx tests 'tests/**/*.{ts,tsx}'",
+    "ts_test": "node_modules/.bin/mocha --require ts-node/register --extensions ts,tsx tests 'tests/**/*.{ts,tsx}'",
+    "js_test": "node_modules/.bin/mocha --extensions js,jsx tests 'tests/**/*.{js,jsx}'",
+    "test": "node_modules/.bin/mocha --require ts-node/register --extensions js,jsx,ts,tsx tests 'tests/**/*.{ts,tsx,js,jsx}'",
     "frun": "firebase serve --only hosting"
   },
   "repository": {
