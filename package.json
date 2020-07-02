@@ -8,7 +8,7 @@
     "ts_test": "node_modules/.bin/mocha --require ts-node/register --extensions ts,tsx tests 'tests/**/*.{ts,tsx}'",
     "js_test": "node_modules/.bin/mocha --extensions js,jsx tests 'tests/**/*.{js,jsx}'",
     "test": "node_modules/.bin/mocha --require ts-node/register --extensions js,jsx,ts,tsx tests 'tests/**/*.{ts,tsx,js,jsx}'",
-    "frun": "firebase serve --only hosting"
+    "serve": "firebase serve --only hosting"
   },
   "repository": {
     "type": "git",
@@ -25,15 +25,15 @@
   },
   "homepage": "https://github.com/alexeysmorkalov/AngularSandBox#readme",
   "devDependencies": {
-    "@babel/core": "7.10.3",
-    "@babel/preset-env": "7.10.3",
-    "@babel/preset-react": "7.10.1",
+    "@babel/core": "7.10.4",
+    "@babel/preset-env": "7.10.4",
+    "@babel/preset-react": "7.10.4",
     "@types/chai": "4.2.11",
     "@types/mocha": "7.0.2",
     "babel-loader": "8.1.0",
     "chai": "4.2.0",
     "clean-webpack-plugin": "^3.0.0",
-    "copy-webpack-plugin": "6.0.2",
+    "copy-webpack-plugin": "6.0.3",
     "favicons-webpack-plugin": "3.0.1",
     "html-webpack-plugin": "4.3.0",
     "mocha": "8.0.1",

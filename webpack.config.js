@@ -31,8 +31,13 @@ module.exports = {
         }]}),
       new CopyWebpackPlugin({patterns: [
         {
-          from: './webapps/nojs/src',
+          from: './webapps/nojs',
           to : './nojs'
         }]}),
-      ]
+      new CopyWebpackPlugin({patterns: [
+        {
+          from: './webapps/404',
+          to : './'
+        }]}),
+        ]
 }
