@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin= require('copy-webpack-plugin');
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: "production",
@@ -18,7 +19,15 @@ module.exports = {
           use: {
             loader: "babel-loader"
           }
-        }
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: [
+             MiniCssExtractPlugin.loader,
+            'css-loader',
+            'sass-loader',
+          ],
+        },
       ]
     },
     plugins: [
@@ -39,5 +48,9 @@ module.exports = {
           from: './webapps/404',
           to : './'
         }]}),
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].css',
+        chunkFilename: '[id].css',
+      }),        
         ]
 }
