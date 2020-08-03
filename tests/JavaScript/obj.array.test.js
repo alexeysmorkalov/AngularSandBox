@@ -1,4 +1,5 @@
 const {expect} = require('chai');
+const { given } = require('mocha-testdata');
 
 describe('built-in Array object', () => {
     it('Array.length', () => {
@@ -30,4 +31,16 @@ describe('built-in Array object', () => {
         const array = Array.from(s, x => x.toUpperCase());
         expect(array[0]).to.be.equal("A");
     });
+
+    var runs = [
+        {data: null, expected: false},
+        {data: "", expected: false},
+        {data: "123", expected: false},
+        {data: 8, expected: false},
+        {data: true, expected: false},
+        {data: [], expected: true}
+    ];
+    given(runs).it ('Array.isArray ', (run) => {
+            expect(Array.isArray(run.data)).to.be.equal(run.expected);
+        });
 });
