@@ -53,12 +53,21 @@ describe('built-in Array object', () => {
         expect(arr[3]).to.be.equal("3");
     });
 
-    it ('Array.concat()', () => {
+    it ('Array.concat(array)', () => {
         const arr1 = Array.of(1, 2, 3);
         const arr2 = Array.of(4, 5);
         const arr3 = arr1.concat(arr2);
         expect(arr3.length).to.be.equal(arr1.length + arr2.length);
         expect(arr3[0]).to.be.equal(arr1[0]);
         expect(arr3[arr1.length]).to.be.equal(arr2[0]);
+    });
+
+    it ('Array.concat(number)', () => {
+        const arr1 = Array.of(1, 2, 3);
+        const arr2 = 4;
+        const arr3 = arr1.concat(arr2);
+        expect(arr3.length).to.be.equal(arr1.length + 1);
+        expect(arr3[0]).to.be.equal(arr1[0]);
+        expect(arr3[arr1.length]).to.be.equal(arr2);
     });
 });
