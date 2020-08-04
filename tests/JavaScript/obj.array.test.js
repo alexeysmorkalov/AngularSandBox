@@ -70,4 +70,9 @@ describe('built-in Array object', () => {
         expect(arr3[0]).to.be.equal(arr1[0]);
         expect(arr3[arr1.length]).to.be.equal(arr2);
     });
+
+    it ('Array.copyWithin()', () => {
+        const arr = [1, 2, 3].copyWithin(-1);
+        expect(arr).to.be.eql([1, 2, 1]);
+    });
 });
