@@ -75,4 +75,14 @@ describe('built-in Array object', () => {
         const arr = [1, 2, 3].copyWithin(-1);
         expect(arr).to.be.eql([1, 2, 1]);
     });
+
+    it ('Array.entries()', () => {
+        const iterator = ["a","b"].entries();
+        const [index1, element1] = iterator.next().value;
+        const [index2, element2] = iterator.next().value;
+        expect(index1).to.be.equal(0);
+        expect(index2).to.be.equal(1);
+        expect(element1).to.be.equal("a");
+        expect(element2).to.be.equal("b");
+    });
 });
