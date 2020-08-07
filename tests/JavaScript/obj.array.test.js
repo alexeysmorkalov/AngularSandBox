@@ -111,4 +111,16 @@ describe('built-in Array object', () => {
         expect(array1).to.be.equal(array2);
 
     });
+
+    it ('typeof array', () => {
+        expect(typeof []).to.be.equal('object');
+    });
+
+    it ('typeof Array', () => {
+        expect(typeof Array).to.be.equal('function');
+    });
+
+    it ('typeof Array.prototype', () => {
+        expect(typeof Array.prototype).to.be.equal('object');
+    });
 });
