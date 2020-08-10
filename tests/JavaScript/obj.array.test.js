@@ -123,4 +123,24 @@ describe('built-in Array object', () => {
     it ('typeof Array.prototype', () => {
         expect(typeof Array.prototype).to.be.equal('object');
     });
+
+    it ('Array.fill(N)', () => {
+        let arr = [1, 2, 3, 4];
+        const val = 5;
+        const arr1 = arr.fill(val);
+        expect(arr1.every(x => x === val)).to.be.true;
+        // the same array
+        expect(arr).to.be.equal(arr1);
+    });
+
+    it ('Array.fill(N, inx, end)', () => {
+        let arr = [1, 2, 3, 4];
+        let arrCopy = Array.from(arr);
+        const val = 5;
+        arr.fill(5, 1, 3);
+        expect(arr[0]).to.be.equal(arrCopy[0]);
+        expect(arr[1]).to.be.equal(val);
+        expect(arr[2]).to.be.equal(val);
+        expect(arr[3]).to.be.equal(arrCopy[3]);
+    });
 });
