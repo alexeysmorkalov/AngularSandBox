@@ -143,4 +143,21 @@ describe('built-in Array object', () => {
         expect(arr[2]).to.be.equal(val);
         expect(arr[3]).to.be.equal(arrCopy[3]);
     });
+
+    it ('Array.filter()', () => {
+        let arr = [1, 2, 3, 4];
+        let res = arr.filter(x => x < 5);
+
+        // returns new array with the same values
+        expect(arr).to.be.eql(res);
+        expect(arr).not.to.be.equal(res);
+    });
+
+    it ('Array.filter()', () => {
+        let arr = [1, 2, 3, 4];
+        let res = arr.filter(x => x > 2);
+
+        expect(res.length).to.be.equal(2);
+        expect(res[0]).to.be.equal(3);
+    });
 });
