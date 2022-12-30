@@ -38,7 +38,7 @@
     "favicons-webpack-plugin": "4.2.0",
     "html-webpack-plugin": "4.3.0",
     "mini-css-extract-plugin": "0.10.0",
-    "mocha": "8.1.1",
+    "mocha": "8.4.0",
     "mocha-testdata": "1.2.0",
     "node-sass": "4.14.1",
     "sass": "1.26.10",
